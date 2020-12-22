@@ -17,4 +17,8 @@ class MedicationTableViewCell: UITableViewCell {
         print("Has taken med tapped")
     }
 
+    func configure(with medication: Medication) {
+        titleLabel.text = medication.name
+        dosageTimeLabel.text = DateFormatter.medicationTime.string(from: medication.timeOfDay ?? Date())
+    }
 }
