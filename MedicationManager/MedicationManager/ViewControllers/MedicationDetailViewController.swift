@@ -34,9 +34,7 @@ class MedicationDetailViewController: UIViewController {
         else { return }
 
         if let medication = medication {
-            medication.name = name
-            medication.timeOfDay = datePicker.date
-            MedicationController.shared.updateMedication(medication)
+            MedicationController.shared.updateMedicationDetails(medication, name: name, timeOfDay: datePicker.date)
         } else {
             MedicationController.shared.createMedication(name: name, timeOfDay: datePicker.date)
         }

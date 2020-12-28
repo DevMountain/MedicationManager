@@ -29,11 +29,30 @@ class MedicationController {
 
     func fetchMedications() {
         let medications = (try? CoreDataStack.context.fetch(self.fetchRequest)) ?? []
-        print(medications.count)
         self.medications = medications
     }
 
-    func updateMedication(_ medication: Medication) {
+    func updateMedicationDetails(_ medication: Medication, name: String, timeOfDay: Date) {
+        medication.name = name
+        medication.timeOfDay = timeOfDay
+        CoreDataStack.saveContext()
+    }
+
+    func updateMedicationTakenStatus(_ wasTaken: Bool, medication: Medication) {
+        if wasTaken {
+            TakenDate(date: Date(), medication: medication)
+        } else {
+            let mutableTakenDates = medication.mutableSetValue(forKey: "takenDates")
+
+            if let takenDate = (mutableTakenDates as? Set<TakenDate>)?.first(where: { takenDate in
+                guard let date = takenDate.date
+                else { return false }
+
+                return Calendar.current.isDate(date, inSameDayAs: Date())
+            }) {
+                mutableTakenDates.remove(takenDate)
+            }
+        }
         CoreDataStack.saveContext()
     }
 

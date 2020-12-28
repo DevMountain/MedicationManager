@@ -3,8 +3,14 @@
     <entity name="Medication" representedClassName="Medication" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String"/>
         <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="takenDates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TakenDate" inverseName="medication" inverseEntity="TakenDate"/>
+    </entity>
+    <entity name="TakenDate" representedClassName="TakenDate" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medication" inverseName="takenDates" inverseEntity="Medication"/>
     </entity>
     <elements>
-        <element name="Medication" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Medication" positionX="-346.44140625" positionY="-61.6875" width="128" height="88"/>
+        <element name="TakenDate" positionX="-89.8203125" positionY="18.9375" width="128" height="73"/>
     </elements>
 </model>

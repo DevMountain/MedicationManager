@@ -7,18 +7,44 @@
 
 import UIKit
 
+protocol MedicationCellDelegate: class {
+    func medicationWasTakenTapped(wasTaken: Bool, medication: Medication, cell: MedicationTableViewCell)
+}
+
 class MedicationTableViewCell: UITableViewCell {
+
+    weak var delegate: MedicationCellDelegate?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dosageTimeLabel: UILabel!
     @IBOutlet weak var hasTakenButton: UIButton!
 
+    var medication: Medication?
+    private var wasTakenToday: Bool = false
+
     @IBAction func hasTakenButtonTapped(_ sender: UIButton) {
-        print("Has taken med tapped")
+        guard let medication = medication
+        else { return }
+
+        wasTakenToday.toggle()
+        delegate?.medicationWasTakenTapped(wasTaken: wasTakenToday, medication: medication, cell: self)
     }
 
     func configure(with medication: Medication) {
+        self.medication = medication
+        wasTakenToday = medication.wasTakenToday()
+
         titleLabel.text = medication.name
-        dosageTimeLabel.text = DateFormatter.medicationTime.string(from: medication.timeOfDay ?? Date())
+        dosageTimeLabel.text = DateFormatter.shortTimeStyle.string(from: medication.timeOfDay ?? Date())
+        let image = wasTakenToday ? UIImage(systemName: "checkmark.square") : UIImage(systemName: "square")
+        hasTakenButton.setImage(image, for: .normal)
+        hasTakenButton.tintColor = .black
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        medication = nil
+        wasTakenToday = false
     }
 }

@@ -52,8 +52,19 @@ extension MedicationListViewController: UITableViewDataSource, UITableViewDelega
 
         let medication = MedicationController.shared.medications[indexPath.row]
 
+        cell.delegate = self
         cell.configure(with: medication)
         return cell
     }
     
+}
+
+extension MedicationListViewController: MedicationCellDelegate {
+    func medicationWasTakenTapped(wasTaken: Bool, medication: Medication, cell: MedicationTableViewCell) {
+        MedicationController.shared.updateMedicationTakenStatus(wasTaken, medication: medication)
+        guard let indexPath = tableView.indexPath(for: cell)
+        else { return }
+
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
