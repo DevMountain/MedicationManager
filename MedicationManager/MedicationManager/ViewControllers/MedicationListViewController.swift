@@ -9,7 +9,9 @@ import UIKit
 
 class MedicationListViewController: UIViewController {
 
+    @IBOutlet weak var moodSurveyButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,10 @@ class MedicationListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+
+    @IBAction func moodSurveyButtonTapped(_ sender: UIButton) {
+        containerView.isHidden = false
     }
 
     // MARK: - Navigation

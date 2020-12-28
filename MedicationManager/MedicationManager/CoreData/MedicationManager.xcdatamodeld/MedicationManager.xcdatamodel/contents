@@ -5,6 +5,10 @@
         <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="takenDates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TakenDate" inverseName="medication" inverseEntity="TakenDate"/>
     </entity>
+    <entity name="MoodSurvey" representedClassName="MoodSurvey" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mentalState" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="TakenDate" representedClassName="TakenDate" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medication" inverseName="takenDates" inverseEntity="Medication"/>
@@ -12,5 +16,6 @@
     <elements>
         <element name="Medication" positionX="-346.44140625" positionY="-61.6875" width="128" height="88"/>
         <element name="TakenDate" positionX="-89.8203125" positionY="18.9375" width="128" height="73"/>
+        <element name="MoodSurvey" positionX="-147.4296875" positionY="-134.83203125" width="128" height="73"/>
     </elements>
 </model>

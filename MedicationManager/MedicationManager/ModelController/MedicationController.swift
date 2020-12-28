@@ -20,6 +20,7 @@ class MedicationController {
     var sections: [[Medication]] { [notTakenMeds, takenMeds] }
     var notTakenMeds: [Medication] = []
     var takenMeds: [Medication] = []
+    var moodSurvey: MoodSurvey?
 
     private init() {}
 
@@ -33,6 +34,10 @@ class MedicationController {
         let medications = (try? CoreDataStack.context.fetch(self.fetchRequest)) ?? []
         takenMeds = medications.filter { $0.wasTakenToday() }
         notTakenMeds = medications.filter { !$0.wasTakenToday() }
+    }
+
+    func fetchMoodSurveys() {
+
     }
 
     func updateMedicationDetails(_ medication: Medication, name: String, timeOfDay: Date) {

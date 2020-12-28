@@ -22,6 +22,8 @@
 		33A61CB9258F2E6E00B62B2F /* MedicationManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33A61CB7258F2E6E00B62B2F /* MedicationManager.xcdatamodeld */; };
 		33A61CBB258F2E7000B62B2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A61CBA258F2E7000B62B2F /* Assets.xcassets */; };
 		33A61CBE258F2E7000B62B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A61CBC258F2E7000B62B2F /* LaunchScreen.storyboard */; };
+		33CC4270259A4DB2000827A1 /* MoodSurvey+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */; };
+		33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		33A61CBA258F2E7000B62B2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33A61CBD258F2E7000B62B2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33A61CBF258F2E7000B62B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodSurvey+Convenience.swift"; sourceTree = "<group>"; };
+		33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			children = (
 				335A20822591B868000B4B00 /* MedicationListViewController.swift */,
 				335A208E2591C737000B4B00 /* MedicationDetailViewController.swift */,
+				33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				33A61CB7258F2E6E00B62B2F /* MedicationManager.xcdatamodeld */,
 				335A209A2591CA19000B4B00 /* Medication+Convenience.swift */,
 				335A223425940B02000B4B00 /* TakenDate+Convenience.swift */,
+				33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */,
 				335A20962591C99C000B4B00 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -212,8 +218,10 @@
 				335A20832591B868000B4B00 /* MedicationListViewController.swift in Sources */,
 				335A20972591C99C000B4B00 /* CoreDataStack.swift in Sources */,
 				33A61CB9258F2E6E00B62B2F /* MedicationManager.xcdatamodeld in Sources */,
+				33CC4270259A4DB2000827A1 /* MoodSurvey+Convenience.swift in Sources */,
 				335A208C2591C452000B4B00 /* MedicationController.swift in Sources */,
 				33A61CB1258F2E6E00B62B2F /* SceneDelegate.swift in Sources */,
+				33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */,
 				335A208F2591C737000B4B00 /* MedicationDetailViewController.swift in Sources */,
 				335A20862591B92F000B4B00 /* MedicationTableViewCell.swift in Sources */,
 			);
