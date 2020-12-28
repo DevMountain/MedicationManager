@@ -17,19 +17,22 @@ class MedicationController {
         return request
     }()
 
-    private init() {}
+    var sections: [[Medication]] { [notTakenMeds, takenMeds] }
+    var notTakenMeds: [Medication] = []
+    var takenMeds: [Medication] = []
 
-    var medications: [Medication] = []
+    private init() {}
 
     func createMedication(name: String, timeOfDay: Date) {
         let medication = Medication(name: name, timeOfDay: timeOfDay)
-        medications.append(medication)
+        notTakenMeds.append(medication)
         CoreDataStack.saveContext()
     }
 
     func fetchMedications() {
         let medications = (try? CoreDataStack.context.fetch(self.fetchRequest)) ?? []
-        self.medications = medications
+        takenMeds = medications.filter { $0.wasTakenToday() }
+        notTakenMeds = medications.filter { !$0.wasTakenToday() }
     }
 
     func updateMedicationDetails(_ medication: Medication, name: String, timeOfDay: Date) {
@@ -41,6 +44,10 @@ class MedicationController {
     func updateMedicationTakenStatus(_ wasTaken: Bool, medication: Medication) {
         if wasTaken {
             TakenDate(date: Date(), medication: medication)
+            if let index = notTakenMeds.firstIndex(of: medication) {
+                notTakenMeds.remove(at: index)
+                takenMeds.append(medication)
+            }
         } else {
             let mutableTakenDates = medication.mutableSetValue(forKey: "takenDates")
 
@@ -51,6 +58,10 @@ class MedicationController {
                 return Calendar.current.isDate(date, inSameDayAs: Date())
             }) {
                 mutableTakenDates.remove(takenDate)
+                if let index = takenMeds.firstIndex(of: medication) {
+                    takenMeds.remove(at: index)
+                    notTakenMeds.append(medication)
+                }
             }
         }
         CoreDataStack.saveContext()
