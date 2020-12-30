@@ -82,6 +82,14 @@ extension MedicationListViewController: UITableViewDataSource, UITableViewDelega
         }
         return nil
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let medication = MedicationController.shared.sections[indexPath.section][indexPath.row]
+            MedicationController.shared.deleteMedication(medication)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
 }
 

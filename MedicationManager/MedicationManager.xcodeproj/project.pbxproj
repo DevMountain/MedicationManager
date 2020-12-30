@@ -25,6 +25,7 @@
 		33CC4270259A4DB2000827A1 /* MoodSurvey+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */; };
 		33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */; };
 		33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4282259D07B4000827A1 /* MoodSurveyController.swift */; };
+		33CC427A259A7D5F000827A1 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodSurvey+Convenience.swift"; sourceTree = "<group>"; };
 		33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyViewController.swift; sourceTree = "<group>"; };
 		33CC4282259D07B4000827A1 /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
+		33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				33A61CBC258F2E7000B62B2F /* LaunchScreen.storyboard */,
 				33A61CBF258F2E7000B62B2F /* Info.plist */,
 				335A20BF2592BA50000B4B00 /* DateFormatter+Extras.swift */,
+				33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				335A208F2591C737000B4B00 /* MedicationDetailViewController.swift in Sources */,
 				33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */,
 				335A20862591B92F000B4B00 /* MedicationTableViewCell.swift in Sources */,
+				33CC427A259A7D5F000827A1 /* NotificationScheduler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

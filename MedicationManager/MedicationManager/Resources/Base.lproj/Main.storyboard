@@ -166,7 +166,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="yfr-JW-vWU">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="yfr-JW-vWU">
                                         <rect key="frame" x="0.0" y="122.66666666666666" width="358" height="55"/>
                                     </datePicker>
                                 </subviews>
@@ -217,7 +217,7 @@
         <!--Mood Survey View Controller-->
         <scene sceneID="aJn-ch-6BV">
             <objects>
-                <viewController storyboardIdentifier="moodSurveyViewController" id="RSX-wf-lkm" customClass="MoodSurveyViewController" customModule="MedicationManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moodSurveyViewController" modalPresentationStyle="fullScreen" id="RSX-wf-lkm" customClass="MoodSurveyViewController" customModule="MedicationManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ytn-Ko-ce7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

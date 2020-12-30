@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Medication" representedClassName="Medication" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="takenDates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TakenDate" inverseName="medication" inverseEntity="TakenDate"/>
@@ -14,7 +15,7 @@
         <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medication" inverseName="takenDates" inverseEntity="Medication"/>
     </entity>
     <elements>
-        <element name="Medication" positionX="-346.44140625" positionY="-61.6875" width="128" height="88"/>
+        <element name="Medication" positionX="-346.44140625" positionY="-61.6875" width="128" height="103"/>
         <element name="TakenDate" positionX="-89.8203125" positionY="18.9375" width="128" height="73"/>
         <element name="MoodSurvey" positionX="-147.4296875" positionY="-134.83203125" width="128" height="73"/>
     </elements>

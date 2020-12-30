@@ -6,10 +6,12 @@
 //
 
 import CoreData
+import UserNotifications
 
 class MedicationController {
 
     static let shared = MedicationController()
+    let notificationScheduler = NotificationScheduler()
 
     private lazy var fetchRequest: NSFetchRequest<Medication> = {
         let request = NSFetchRequest<Medication>(entityName: "Medication")
@@ -27,7 +29,10 @@ class MedicationController {
     func createMedication(name: String, timeOfDay: Date) {
         let medication = Medication(name: name, timeOfDay: timeOfDay)
         notTakenMeds.append(medication)
+        
         CoreDataStack.saveContext()
+
+        notificationScheduler.scheduleNotifications(for: medication)
     }
 
     func fetchMedications() {
@@ -40,6 +45,9 @@ class MedicationController {
         medication.name = name
         medication.timeOfDay = timeOfDay
         CoreDataStack.saveContext()
+
+        notificationScheduler.clearNotifications(for: medication)
+        notificationScheduler.scheduleNotifications(for: medication)
     }
 
     func updateMedicationTakenStatus(_ wasTaken: Bool, medication: Medication) {
@@ -68,8 +76,17 @@ class MedicationController {
         CoreDataStack.saveContext()
     }
 
-    func deleteMedication() {
+    func deleteMedication(_ medication: Medication) {
+        if let index = notTakenMeds.firstIndex(of: medication) {
+            notTakenMeds.remove(at: index)
+        } else if let index = takenMeds.firstIndex(of: medication) {
+            takenMeds.remove(at: index)
+        }
 
+        CoreDataStack.context.delete(medication)
+        CoreDataStack.saveContext()
+        
+        notificationScheduler.clearNotifications(for: medication)
     }
     
 }
