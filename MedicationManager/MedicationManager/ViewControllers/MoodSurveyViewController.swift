@@ -7,12 +7,23 @@
 
 import UIKit
 
+protocol MoodSurveyViewControllerDelegate: class {
+    func moodButtonTapped(with emoji: String)
+}
+
 class MoodSurveyViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    weak var delegate: MoodSurveyViewControllerDelegate?
 
-        
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func moodButtonTapped(_ sender: UIButton) {
+        guard let moodEmoji = sender.titleLabel?.text
+        else { return }
+
+        delegate?.moodButtonTapped(with: moodEmoji)
+        dismiss(animated: true, completion: nil)
+    }
 }

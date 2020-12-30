@@ -24,6 +24,7 @@
 		33A61CBE258F2E7000B62B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A61CBC258F2E7000B62B2F /* LaunchScreen.storyboard */; };
 		33CC4270259A4DB2000827A1 /* MoodSurvey+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */; };
 		33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */; };
+		33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4282259D07B4000827A1 /* MoodSurveyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		33A61CBF258F2E7000B62B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodSurvey+Convenience.swift"; sourceTree = "<group>"; };
 		33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyViewController.swift; sourceTree = "<group>"; };
+		33CC4282259D07B4000827A1 /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				335A208B2591C452000B4B00 /* MedicationController.swift */,
+				33CC4282259D07B4000827A1 /* MoodSurveyController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				33A61CB1258F2E6E00B62B2F /* SceneDelegate.swift in Sources */,
 				33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */,
 				335A208F2591C737000B4B00 /* MedicationDetailViewController.swift in Sources */,
+				33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */,
 				335A20862591B92F000B4B00 /* MedicationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

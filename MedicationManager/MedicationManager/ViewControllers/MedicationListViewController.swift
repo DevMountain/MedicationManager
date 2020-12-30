@@ -11,7 +11,6 @@ class MedicationListViewController: UIViewController {
 
     @IBOutlet weak var moodSurveyButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +19,9 @@ class MedicationListViewController: UIViewController {
         tableView.delegate = self
 
         MedicationController.shared.fetchMedications()
+        MoodSurveyController.shared.fetchTodaysMoodSurvey()
+
+        moodSurveyButton.setTitle(MoodSurveyController.shared.todaysMoodSurvey?.mentalState ?? "❓", for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +31,12 @@ class MedicationListViewController: UIViewController {
     }
 
     @IBAction func moodSurveyButtonTapped(_ sender: UIButton) {
-        containerView.isHidden = false
+        guard let moodSurveyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "moodSurveyViewController") as? MoodSurveyViewController
+        else { return }
+
+        moodSurveyViewController.modalPresentationStyle = .fullScreen
+        moodSurveyViewController.delegate = self
+        navigationController?.present(moodSurveyViewController, animated: true, completion: nil)
     }
 
     // MARK: - Navigation
@@ -82,5 +89,12 @@ extension MedicationListViewController: MedicationCellDelegate {
     func medicationWasTakenTapped(wasTaken: Bool, medication: Medication, cell: MedicationTableViewCell) {
         MedicationController.shared.updateMedicationTakenStatus(wasTaken, medication: medication)
         tableView.reloadData()
+    }
+}
+
+extension MedicationListViewController: MoodSurveyViewControllerDelegate {
+    func moodButtonTapped(with emoji: String) {
+        MoodSurveyController.shared.didTapMoodEmoji(emoji)
+        moodSurveyButton.setTitle(emoji, for: .normal)
     }
 }

@@ -36,10 +36,6 @@ class MedicationController {
         notTakenMeds = medications.filter { !$0.wasTakenToday() }
     }
 
-    func fetchMoodSurveys() {
-
-    }
-
     func updateMedicationDetails(_ medication: Medication, name: String, timeOfDay: Date) {
         medication.name = name
         medication.timeOfDay = timeOfDay
