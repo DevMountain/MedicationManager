@@ -22,6 +22,8 @@ class MedicationListViewController: UIViewController {
         MoodSurveyController.shared.fetchTodaysMoodSurvey()
 
         moodSurveyButton.setTitle(MoodSurveyController.shared.todaysMoodSurvey?.mentalState ?? "❓", for: .normal)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(reminderFired), name: Notification.Name(Strings.reminderReceivedNotificationName), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,12 +33,21 @@ class MedicationListViewController: UIViewController {
     }
 
     @IBAction func moodSurveyButtonTapped(_ sender: UIButton) {
-        guard let moodSurveyViewController = UIStoryboard(name: Strings.markTakenNotificationActionIdentifier, bundle: nil).instantiateViewController(identifier: Strings.moodSurveyViewControllerIdentifier) as? MoodSurveyViewController
+        guard let moodSurveyViewController = UIStoryboard(name: Strings.mainStoryboardIdentifier, bundle: nil).instantiateViewController(identifier: Strings.moodSurveyViewControllerIdentifier) as? MoodSurveyViewController
         else { return }
 
         moodSurveyViewController.modalPresentationStyle = .fullScreen
         moodSurveyViewController.delegate = self
         navigationController?.present(moodSurveyViewController, animated: true, completion: nil)
+    }
+
+    @objc func reminderFired() {
+        tableView.backgroundColor = .systemRed
+        view.backgroundColor = .systemRed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.tableView.backgroundColor = .systemBackground
+            self.view.backgroundColor = .systemBackground
+        }
     }
 
     // MARK: - Navigation

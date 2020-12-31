@@ -10,6 +10,7 @@ import Foundation
 enum Strings {
     static let accept = "Accept"
     static let addMedicationTitle = "Add Medication"
+    static let emojiKey = "emoji"
     static let ignore = "Ignore"
     static let ignoreNotificationActionIdentifier = "IgnoreNotification"
     static let mainStoryboardIdentifier = "Main"
@@ -23,6 +24,7 @@ enum Strings {
     static let moodSurveyEntityType = "MoodSurvey"
     static let moodSurveyViewControllerIdentifier = "moodSurveyViewController"
     static let notificationCategoryIdentifier = "MedicationReminder"
+    static let reminderReceivedNotificationName = "ReminderReceivedNotification"
     static let takenDates = "takenDates"
     static let toEditMedicationSegueIdentifier = "toEditMedication"
 }

@@ -26,6 +26,15 @@ class MedicationDetailViewController: UIViewController {
         } else {
             title = Strings.addMedicationTitle
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(reminderFired), name: Notification.Name(Strings.reminderReceivedNotificationName), object: nil)
+    }
+
+    @objc func reminderFired() {
+        view.backgroundColor = .systemRed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.view.backgroundColor = .systemOrange
+        }
     }
     
     @IBAction func saveMedicationButtonTapped(_ sender: UIBarButtonItem) {
