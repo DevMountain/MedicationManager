@@ -22,9 +22,9 @@ class MedicationDetailViewController: UIViewController {
             nameTextField.text = medication.name
             datePicker.date = timeOfDay
 
-            title = "Medication Details"
+            title = Strings.medicationDetailsTitle
         } else {
-            title = "Add Medication"
+            title = Strings.addMedicationTitle
         }
     }
     

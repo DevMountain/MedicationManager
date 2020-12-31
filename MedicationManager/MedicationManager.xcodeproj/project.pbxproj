@@ -24,8 +24,9 @@
 		33A61CBE258F2E7000B62B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A61CBC258F2E7000B62B2F /* LaunchScreen.storyboard */; };
 		33CC4270259A4DB2000827A1 /* MoodSurvey+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */; };
 		33CC4274259A675B000827A1 /* MoodSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */; };
-		33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4282259D07B4000827A1 /* MoodSurveyController.swift */; };
 		33CC427A259A7D5F000827A1 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */; };
+		33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4282259D07B4000827A1 /* MoodSurveyController.swift */; };
+		33CC428D259E2F82000827A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC428C259E2F82000827A1 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +49,9 @@
 		33A61CBF258F2E7000B62B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33CC426F259A4DB2000827A1 /* MoodSurvey+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodSurvey+Convenience.swift"; sourceTree = "<group>"; };
 		33CC4273259A675B000827A1 /* MoodSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyViewController.swift; sourceTree = "<group>"; };
-		33CC4282259D07B4000827A1 /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
 		33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
+		33CC4282259D07B4000827A1 /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
+		33CC428C259E2F82000827A1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				33A61CBF258F2E7000B62B2F /* Info.plist */,
 				335A20BF2592BA50000B4B00 /* DateFormatter+Extras.swift */,
 				33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */,
+				33CC428C259E2F82000827A1 /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				335A209B2591CA19000B4B00 /* Medication+Convenience.swift in Sources */,
+				33CC428D259E2F82000827A1 /* Strings.swift in Sources */,
 				33A61CAF258F2E6E00B62B2F /* AppDelegate.swift in Sources */,
 				335A20892591BDB1000B4B00 /* WellnessRatingTableViewCell.swift in Sources */,
 				335A223525940B03000B4B00 /* TakenDate+Convenience.swift in Sources */,

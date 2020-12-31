@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
             if authorized {
+                UNUserNotificationCenter.current().delegate = self
+                self.setNotificationCategories()
                 print("✅ The user authorized notifications.")
             } else {
                 print("🛑 The user declined the use of notifications")
@@ -27,6 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
+    }
+
+    private func setNotificationCategories() {
+        let markTakenAction = UNNotificationAction(identifier: Strings.markTakenNotificationActionIdentifier,
+                                                   title: Strings.accept,
+                                                   options: UNNotificationActionOptions(rawValue: 0))
+        let ignoreAction = UNNotificationAction(identifier: Strings.ignoreNotificationActionIdentifier,
+                                                title: Strings.ignore,
+                                                options: UNNotificationActionOptions(rawValue: 0))
+
+        let meetingInviteCategory =
+            UNNotificationCategory(identifier: Strings.notificationCategoryIdentifier,
+                                   actions: [markTakenAction, ignoreAction],
+                                   intentIdentifiers: [],
+                                   hiddenPreviewsBodyPlaceholder: "",
+                                   options: .customDismissAction)
+
+        UNUserNotificationCenter.current().setNotificationCategories([meetingInviteCategory])
     }
 
     // MARK: UISceneSession Lifecycle
@@ -41,6 +61,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == Strings.markTakenNotificationActionIdentifier,
+           let medicationID = response.notification.request.content.userInfo[Strings.medicationID] as? String {
+            MedicationController.shared.markMedicationAsTaken(withID: medicationID)
+            completionHandler()
+        }
     }
 
 }

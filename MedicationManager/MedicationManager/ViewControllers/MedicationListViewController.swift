@@ -31,7 +31,7 @@ class MedicationListViewController: UIViewController {
     }
 
     @IBAction func moodSurveyButtonTapped(_ sender: UIButton) {
-        guard let moodSurveyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "moodSurveyViewController") as? MoodSurveyViewController
+        guard let moodSurveyViewController = UIStoryboard(name: Strings.markTakenNotificationActionIdentifier, bundle: nil).instantiateViewController(identifier: Strings.moodSurveyViewControllerIdentifier) as? MoodSurveyViewController
         else { return }
 
         moodSurveyViewController.modalPresentationStyle = .fullScreen
@@ -43,7 +43,7 @@ class MedicationListViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toEditMedication",
+        if segue.identifier == Strings.toEditMedicationSegueIdentifier,
            let destination = segue.destination as? MedicationDetailViewController,
            let indexPath = tableView.indexPathForSelectedRow {
             let medication = MedicationController.shared.sections[indexPath.section][indexPath.row]
@@ -64,7 +64,7 @@ extension MedicationListViewController: UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "medicationCell", for: indexPath) as? MedicationTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.medicationCellIdentifier, for: indexPath) as? MedicationTableViewCell
         else { return UITableViewCell() }
 
         let medication = MedicationController.shared.sections[indexPath.section][indexPath.row]

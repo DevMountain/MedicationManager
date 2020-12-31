@@ -14,7 +14,7 @@ class MedicationController {
     let notificationScheduler = NotificationScheduler()
 
     private lazy var fetchRequest: NSFetchRequest<Medication> = {
-        let request = NSFetchRequest<Medication>(entityName: "Medication")
+        let request = NSFetchRequest<Medication>(entityName: Strings.medicationEntityType)
         request.predicate = NSPredicate(value: true)
         return request
     }()
@@ -46,7 +46,6 @@ class MedicationController {
         medication.timeOfDay = timeOfDay
         CoreDataStack.saveContext()
 
-        notificationScheduler.clearNotifications(for: medication)
         notificationScheduler.scheduleNotifications(for: medication)
     }
 
@@ -58,7 +57,7 @@ class MedicationController {
                 takenMeds.append(medication)
             }
         } else {
-            let mutableTakenDates = medication.mutableSetValue(forKey: "takenDates")
+            let mutableTakenDates = medication.mutableSetValue(forKey: Strings.takenDates)
 
             if let takenDate = (mutableTakenDates as? Set<TakenDate>)?.first(where: { takenDate in
                 guard let date = takenDate.date
@@ -73,6 +72,15 @@ class MedicationController {
                 }
             }
         }
+        CoreDataStack.saveContext()
+    }
+
+    func markMedicationAsTaken(withID id: String) {
+        guard let uuid = UUID(uuidString: id),
+              let medication = notTakenMeds.first(where: { $0.id == uuid })
+        else { return }
+
+        TakenDate(date: Date(), medication: medication)
         CoreDataStack.saveContext()
     }
 
