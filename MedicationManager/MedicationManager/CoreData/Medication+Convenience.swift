@@ -15,12 +15,12 @@ extension Medication {
     }
 
     func wasTakenToday() -> Bool {
-        guard let _ = (takenDates as? Set<TakenDate>)?.first(where: { takenDate in
+        guard (takenDates as? Set<TakenDate>)?.contains(where: { takenDate in
             guard let day = takenDate.date
             else { return false }
 
             return Calendar.current.isDate(day, inSameDayAs: Date())
-        })
+        }) == true
         else { return false }
 
         return true
