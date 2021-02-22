@@ -42,10 +42,13 @@ class MedicationController {
     }
 
     func updateMedicationTakenStatus(_ wasTaken: Bool, medication: Medication) {
-        if wasTaken {
+        if wasTaken { // if a medication was taken....
+            // We must first initialize a TakenDate & get that into context.
             TakenDate(date: Date(), medication: medication)
+            // then, we must find the first index of that medication in the notTaken meds array in order to remove it from there
             if let index = notTakenMeds.firstIndex(of: medication) {
                 notTakenMeds.remove(at: index)
+                // Then we need to append the med to the takenMeds array.
                 takenMeds.append(medication)
             }
         } else {
