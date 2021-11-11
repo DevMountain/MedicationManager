@@ -13,6 +13,10 @@ class MedicationDetailViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
 
     var medication: Medication?
+
+    deinit {
+        print("BYE BYE BYE")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

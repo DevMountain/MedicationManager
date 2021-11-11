@@ -7,13 +7,17 @@
 
 import UIKit
 
-protocol MoodSurveyViewControllerDelegate: class {
+protocol MoodSurveyViewControllerDelegate: AnyObject {
     func moodButtonTapped(with emoji: String)
 }
 
 class MoodSurveyViewController: UIViewController {
 
     weak var delegate: MoodSurveyViewControllerDelegate?
+
+    deinit {
+        print("ADIOS ADIOS")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
