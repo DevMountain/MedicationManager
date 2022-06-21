@@ -27,7 +27,18 @@
 		33CC427A259A7D5F000827A1 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */; };
 		33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC4282259D07B4000827A1 /* MoodSurveyController.swift */; };
 		33CC428D259E2F82000827A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC428C259E2F82000827A1 /* Strings.swift */; };
+		FF93ADA2286142E800DEB1A4 /* MedicationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF93ADA1286142E800DEB1A4 /* MedicationManagerTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF93ADA3286142E800DEB1A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33A61CA3258F2E6E00B62B2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33A61CAA258F2E6E00B62B2F;
+			remoteInfo = MedicationManager;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		335A20822591B868000B4B00 /* MedicationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListViewController.swift; sourceTree = "<group>"; };
@@ -52,10 +63,19 @@
 		33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		33CC4282259D07B4000827A1 /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
 		33CC428C259E2F82000827A1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		FF93AD9F286142E800DEB1A4 /* MedicationManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedicationManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF93ADA1286142E800DEB1A4 /* MedicationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		33A61CA8258F2E6E00B62B2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF93AD9C286142E800DEB1A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				33A61CAD258F2E6E00B62B2F /* MedicationManager */,
+				FF93ADA0286142E800DEB1A4 /* MedicationManagerTests */,
 				33A61CAC258F2E6E00B62B2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				33A61CAB258F2E6E00B62B2F /* MedicationManager.app */,
+				FF93AD9F286142E800DEB1A4 /* MedicationManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +169,14 @@
 				335A20912591C916000B4B00 /* Resources */,
 			);
 			path = MedicationManager;
+			sourceTree = "<group>";
+		};
+		FF93ADA0286142E800DEB1A4 /* MedicationManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF93ADA1286142E800DEB1A4 /* MedicationManagerTests.swift */,
+			);
+			path = MedicationManagerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,17 +199,39 @@
 			productReference = 33A61CAB258F2E6E00B62B2F /* MedicationManager.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FF93AD9E286142E800DEB1A4 /* MedicationManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF93ADA7286142E800DEB1A4 /* Build configuration list for PBXNativeTarget "MedicationManagerTests" */;
+			buildPhases = (
+				FF93AD9B286142E800DEB1A4 /* Sources */,
+				FF93AD9C286142E800DEB1A4 /* Frameworks */,
+				FF93AD9D286142E800DEB1A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF93ADA4286142E800DEB1A4 /* PBXTargetDependency */,
+			);
+			name = MedicationManagerTests;
+			productName = MedicationManagerTests;
+			productReference = FF93AD9F286142E800DEB1A4 /* MedicationManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		33A61CA3258F2E6E00B62B2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					33A61CAA258F2E6E00B62B2F = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					FF93AD9E286142E800DEB1A4 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 33A61CAA258F2E6E00B62B2F;
 					};
 				};
 			};
@@ -197,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				33A61CAA258F2E6E00B62B2F /* MedicationManager */,
+				FF93AD9E286142E800DEB1A4 /* MedicationManagerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +262,13 @@
 				33A61CBE258F2E7000B62B2F /* LaunchScreen.storyboard in Resources */,
 				33A61CBB258F2E7000B62B2F /* Assets.xcassets in Resources */,
 				33A61CB6258F2E6E00B62B2F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF93AD9D286142E800DEB1A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +299,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF93AD9B286142E800DEB1A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF93ADA2286142E800DEB1A4 /* MedicationManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF93ADA4286142E800DEB1A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33A61CAA258F2E6E00B62B2F /* MedicationManager */;
+			targetProxy = FF93ADA3286142E800DEB1A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		33A61CB4258F2E6E00B62B2F /* Main.storyboard */ = {
@@ -415,6 +491,46 @@
 			};
 			name = Release;
 		};
+		FF93ADA5286142E800DEB1A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 883MB467TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chriswithers456.MedicationManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedicationManager.app/MedicationManager";
+			};
+			name = Debug;
+		};
+		FF93ADA6286142E800DEB1A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 883MB467TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chriswithers456.MedicationManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedicationManager.app/MedicationManager";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -432,6 +548,15 @@
 			buildConfigurations = (
 				33A61CC3258F2E7000B62B2F /* Debug */,
 				33A61CC4258F2E7000B62B2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF93ADA7286142E800DEB1A4 /* Build configuration list for PBXNativeTarget "MedicationManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF93ADA5286142E800DEB1A4 /* Debug */,
+				FF93ADA6286142E800DEB1A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
