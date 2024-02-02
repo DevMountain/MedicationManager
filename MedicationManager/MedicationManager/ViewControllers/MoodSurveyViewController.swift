@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MoodSurveyViewControllerDelegate: class {
+protocol MoodSurveyViewControllerDelegate: AnyObject {
     func moodButtonTapped(with emoji: String)
 }
 
