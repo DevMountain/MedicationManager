@@ -35,7 +35,7 @@ class MedicationTableViewCell: UITableViewCell {
         wasTakenToday = medication.wasTakenToday()
 
         titleLabel.text = medication.name
-        dosageTimeLabel.text = DateFormatter.shortTimeStyle.string(from: medication.timeOfDay)
+        dosageTimeLabel.text = medication.timeOfDay.formatted(date: .omitted, time: .shortened)
         let image = wasTakenToday ? UIImage(systemName: "checkmark.square") : UIImage(systemName: "square")
         hasTakenButton.setImage(image, for: .normal)
         hasTakenButton.tintColor = .black

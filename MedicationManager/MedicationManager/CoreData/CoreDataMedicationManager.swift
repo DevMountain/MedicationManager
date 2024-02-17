@@ -1,5 +1,5 @@
 //
-//  CoreDataService.swift
+//  CoreDataMedicationManager.swift
 //  MedicationManager
 //
 //  Created by Aaron Martinez on 2/1/24.
@@ -8,7 +8,7 @@
 import CoreData
 import Foundation
 
-class CDMedicationProvider: MedicationProviding {
+class CoreDataMedicationManager: MedicationProviding {
     
     func createMedication(name: String, timeOfDay: Date) -> Medication {
         _ = CDMedication(name: name, timeOfDay: timeOfDay)
@@ -103,6 +103,7 @@ class CDMedicationProvider: MedicationProviding {
             return nil
         }
     }
+
 }
 
 extension Array where Element == CDTakenDate {

@@ -26,7 +26,7 @@ class MedicationController {
     var takenMeds: [Medication] = []
     var moodSurvey: MoodSurvey?
     
-    private var medicationProvider: MedicationProviding = CDMedicationProvider()
+    private var medicationProvider: MedicationProviding = CoreDataMedicationManager()
     
     private init() {}
 

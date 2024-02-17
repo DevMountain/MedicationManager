@@ -5,46 +5,29 @@
 //  Created by Aaron Martinez on 12/30/20.
 //
 
-import CoreData
+protocol MoodSurveyManaging {
+    func recordSurveyResponse(_ moodEmoji: String)
+    func fetchTodaysMoodSurvey() -> MoodSurvey?
+    func updateTodaysMoodSurvey(moodEmoji: String)
+}
 
 class MoodSurveyController {
 
     static let shared = MoodSurveyController()
+    private var moodSurveyManager: MoodSurveyManaging = CoreDataMoodSurveyManager()
 
-    private lazy var fetchRequest: NSFetchRequest<CDMoodSurvey> = {
-        let request = NSFetchRequest<CDMoodSurvey>(entityName: Strings.moodSurveyEntityType)
-        let startOfToday = Calendar.current.startOfDay(for: Date())
-        let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: startOfToday) ?? Date()
-        let afterPredicate = NSPredicate(format: "date > %@", startOfToday as NSDate)
-        let beforePredicate = NSPredicate(format: "date < %@", endOfToday as NSDate)
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [afterPredicate, beforePredicate])
-        return request
-    }()
-
-    var todaysMoodSurvey: CDMoodSurvey?
-
+    var todaysMoodSurvey: MoodSurvey?
+    
+    func fetchTodaysMoodSurvey() {
+        self.todaysMoodSurvey = moodSurveyManager.fetchTodaysMoodSurvey()
+    }
+    
     func didTapMoodEmoji(_ emoji: String) {
-        if let currentSurvey = todaysMoodSurvey {
-            update(moodSurvey: currentSurvey, moodEmoji: emoji)
+        if todaysMoodSurvey != nil {
+            moodSurveyManager.updateTodaysMoodSurvey(moodEmoji: emoji)
         } else {
-            create(moodEmoji: emoji)
+            moodSurveyManager.recordSurveyResponse(emoji)
         }
     }
-
-    func fetchTodaysMoodSurvey() {
-        let todaysMoodSurvey = ((try? CoreDataStack.context.fetch(fetchRequest)) ?? []).first
-        self.todaysMoodSurvey = todaysMoodSurvey
-    }
-
-    private func create(moodEmoji: String) {
-        let moodSurvey = CDMoodSurvey(mentalState: moodEmoji, date: Date())
-        todaysMoodSurvey = moodSurvey
-        CoreDataStack.saveContext()
-    }
-
-    private func update(moodSurvey: CDMoodSurvey, moodEmoji: String) {
-        moodSurvey.mentalState = moodEmoji
-        CoreDataStack.saveContext()
-    }
-
+    
 }

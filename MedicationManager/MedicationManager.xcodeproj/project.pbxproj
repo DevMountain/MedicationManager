@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038D868F2B6CB86C003D39D1 /* CDMedicationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D868E2B6CB86C003D39D1 /* CDMedicationProvider.swift */; };
+		034D6D542B806D2E00BA5FA8 /* CoreDataMoodSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034D6D532B806D2E00BA5FA8 /* CoreDataMoodSurveyManager.swift */; };
+		038D868F2B6CB86C003D39D1 /* CoreDataMedicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D868E2B6CB86C003D39D1 /* CoreDataMedicationManager.swift */; };
 		038D86912B6CB89A003D39D1 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D86902B6CB89A003D39D1 /* Medication.swift */; };
 		038D86942B6CB909003D39D1 /* TakenDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D86932B6CB909003D39D1 /* TakenDate.swift */; };
 		038D86962B6CB914003D39D1 /* MoodSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D86952B6CB914003D39D1 /* MoodSurvey.swift */; };
@@ -18,7 +19,6 @@
 		335A208F2591C737000B4B00 /* MedicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A208E2591C737000B4B00 /* MedicationDetailViewController.swift */; };
 		335A20972591C99C000B4B00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A20962591C99C000B4B00 /* CoreDataStack.swift */; };
 		335A209B2591CA19000B4B00 /* CDMedication+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A209A2591CA19000B4B00 /* CDMedication+Convenience.swift */; };
-		335A20C02592BA51000B4B00 /* DateFormatter+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A20BF2592BA50000B4B00 /* DateFormatter+Extras.swift */; };
 		335A223525940B03000B4B00 /* CDTakenDate+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A223425940B02000B4B00 /* CDTakenDate+Convenience.swift */; };
 		33A61CAF258F2E6E00B62B2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A61CAE258F2E6E00B62B2F /* AppDelegate.swift */; };
 		33A61CB1258F2E6E00B62B2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A61CB0258F2E6E00B62B2F /* SceneDelegate.swift */; };
@@ -34,7 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		038D868E2B6CB86C003D39D1 /* CDMedicationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDMedicationProvider.swift; sourceTree = "<group>"; };
+		034D6D532B806D2E00BA5FA8 /* CoreDataMoodSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMoodSurveyManager.swift; sourceTree = "<group>"; };
+		038D868E2B6CB86C003D39D1 /* CoreDataMedicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMedicationManager.swift; sourceTree = "<group>"; };
 		038D86902B6CB89A003D39D1 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		038D86932B6CB909003D39D1 /* TakenDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenDate.swift; sourceTree = "<group>"; };
 		038D86952B6CB914003D39D1 /* MoodSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurvey.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		335A208E2591C737000B4B00 /* MedicationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationDetailViewController.swift; sourceTree = "<group>"; };
 		335A20962591C99C000B4B00 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		335A209A2591CA19000B4B00 /* CDMedication+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMedication+Convenience.swift"; sourceTree = "<group>"; };
-		335A20BF2592BA50000B4B00 /* DateFormatter+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extras.swift"; sourceTree = "<group>"; };
 		335A223425940B02000B4B00 /* CDTakenDate+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTakenDate+Convenience.swift"; sourceTree = "<group>"; };
 		33A61CAB258F2E6E00B62B2F /* MedicationManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicationManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A61CAE258F2E6E00B62B2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 				33A61CBA258F2E7000B62B2F /* Assets.xcassets */,
 				33A61CBC258F2E7000B62B2F /* LaunchScreen.storyboard */,
 				33A61CBF258F2E7000B62B2F /* Info.plist */,
-				335A20BF2592BA50000B4B00 /* DateFormatter+Extras.swift */,
 				33CC4279259A7D5F000827A1 /* NotificationScheduler.swift */,
 				33CC428C259E2F82000827A1 /* Strings.swift */,
 			);
@@ -130,7 +129,8 @@
 		335A20A425924901000B4B00 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				038D868E2B6CB86C003D39D1 /* CDMedicationProvider.swift */,
+				038D868E2B6CB86C003D39D1 /* CoreDataMedicationManager.swift */,
+				034D6D532B806D2E00BA5FA8 /* CoreDataMoodSurveyManager.swift */,
 				33A61CB7258F2E6E00B62B2F /* MedicationManager.xcdatamodeld */,
 				335A209A2591CA19000B4B00 /* CDMedication+Convenience.swift */,
 				335A223425940B02000B4B00 /* CDTakenDate+Convenience.swift */,
@@ -242,11 +242,11 @@
 			files = (
 				335A209B2591CA19000B4B00 /* CDMedication+Convenience.swift in Sources */,
 				33CC428D259E2F82000827A1 /* Strings.swift in Sources */,
+				034D6D542B806D2E00BA5FA8 /* CoreDataMoodSurveyManager.swift in Sources */,
 				33A61CAF258F2E6E00B62B2F /* AppDelegate.swift in Sources */,
 				038D86942B6CB909003D39D1 /* TakenDate.swift in Sources */,
 				335A20892591BDB1000B4B00 /* WellnessRatingTableViewCell.swift in Sources */,
 				335A223525940B03000B4B00 /* CDTakenDate+Convenience.swift in Sources */,
-				335A20C02592BA51000B4B00 /* DateFormatter+Extras.swift in Sources */,
 				335A20832591B868000B4B00 /* MedicationListViewController.swift in Sources */,
 				335A20972591C99C000B4B00 /* CoreDataStack.swift in Sources */,
 				33A61CB9258F2E6E00B62B2F /* MedicationManager.xcdatamodeld in Sources */,
@@ -259,7 +259,7 @@
 				33CC4283259D07B4000827A1 /* MoodSurveyController.swift in Sources */,
 				038D86962B6CB914003D39D1 /* MoodSurvey.swift in Sources */,
 				335A20862591B92F000B4B00 /* MedicationTableViewCell.swift in Sources */,
-				038D868F2B6CB86C003D39D1 /* CDMedicationProvider.swift in Sources */,
+				038D868F2B6CB86C003D39D1 /* CoreDataMedicationManager.swift in Sources */,
 				33CC427A259A7D5F000827A1 /* NotificationScheduler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -394,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
