@@ -11,8 +11,8 @@ class MoodSurveyController {
 
     static let shared = MoodSurveyController()
 
-    private lazy var fetchRequest: NSFetchRequest<MoodSurvey> = {
-        let request = NSFetchRequest<MoodSurvey>(entityName: Strings.moodSurveyEntityType)
+    private lazy var fetchRequest: NSFetchRequest<CDMoodSurvey> = {
+        let request = NSFetchRequest<CDMoodSurvey>(entityName: Strings.moodSurveyEntityType)
         let startOfToday = Calendar.current.startOfDay(for: Date())
         let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: startOfToday) ?? Date()
         let afterPredicate = NSPredicate(format: "date > %@", startOfToday as NSDate)
@@ -21,7 +21,7 @@ class MoodSurveyController {
         return request
     }()
 
-    var todaysMoodSurvey: MoodSurvey?
+    var todaysMoodSurvey: CDMoodSurvey?
 
     func didTapMoodEmoji(_ emoji: String) {
         if let currentSurvey = todaysMoodSurvey {
@@ -37,12 +37,12 @@ class MoodSurveyController {
     }
 
     private func create(moodEmoji: String) {
-        let moodSurvey = MoodSurvey(mentalState: moodEmoji, date: Date())
+        let moodSurvey = CDMoodSurvey(mentalState: moodEmoji, date: Date())
         todaysMoodSurvey = moodSurvey
         CoreDataStack.saveContext()
     }
 
-    private func update(moodSurvey: MoodSurvey, moodEmoji: String) {
+    private func update(moodSurvey: CDMoodSurvey, moodEmoji: String) {
         moodSurvey.mentalState = moodEmoji
         CoreDataStack.saveContext()
     }

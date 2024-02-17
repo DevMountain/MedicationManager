@@ -17,11 +17,10 @@ class MedicationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let medication = medication,
-           let timeOfDay = medication.timeOfDay {
+        if let medication = medication {
             nameTextField.text = medication.name
-            datePicker.date = timeOfDay
-
+            datePicker.date = medication.timeOfDay
+            
             title = Strings.medicationDetailsTitle
         } else {
             title = Strings.addMedicationTitle

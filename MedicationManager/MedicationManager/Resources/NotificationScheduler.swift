@@ -10,22 +10,19 @@ import UserNotifications
 class NotificationScheduler {
 
     func scheduleNotifications(for medication: Medication) {
-        guard let timeOfDay = medication.timeOfDay,
-              let identifier = medication.id?.uuidString
-        else { return }
-
         clearNotifications(for: medication)
 
         let content = UNMutableNotificationContent()
         content.title = "Reminder"
-        content.body = "It's time to take your \(medication.name ?? Strings.medication)"
+        content.body = "It's time to take your \(medication.name)"
         content.sound = .default
-        content.userInfo = [Strings.medicationID: medication.id?.uuidString ?? ""]
+        content.userInfo = [Strings.medicationID: medication.id.uuidString]
         content.categoryIdentifier = Strings.medicationReminderCategoryIdentifier
 
-        let fireDateComponents = Calendar.current.dateComponents([.hour, .minute], from: timeOfDay)
+        let fireDateComponents = Calendar.current.dateComponents([.hour, .minute], from: medication.timeOfDay)
         let trigger = UNCalendarNotificationTrigger(dateMatching: fireDateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: medication.id.uuidString, 
+                                            content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
@@ -35,9 +32,7 @@ class NotificationScheduler {
     }
 
     func clearNotifications(for medication: Medication) {
-        guard let identifier = medication.id?.uuidString
-        else { return }
-
+        let identifier = medication.id.uuidString
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 
